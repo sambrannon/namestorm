@@ -2,6 +2,11 @@
 <html ng-app="myApp">
   <head>
   	<title>Namestorm</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='css/app.css'/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
@@ -9,6 +14,187 @@
   </head>
 
   <body ng-controller="MyController">
+
+    <div id="app-wrapper" class="clearfix">
+
+      <!-- home link and eventual user account -->
+      <div id="home">
+        <i class="fa fa-bolt"></i>
+      </div>
+
+      <div class="col8" id="left-col">
+
+        <h1>All Ideas</h1>
+
+        <div class="input_wrap clearfix">
+          <input id="name_submit" type="text" placeholder="Enter Name Idea Here...">
+          <button type="submit">Submit</button>
+        </div>
+
+        <div id="ideas">
+          <ol class="clearfix">
+            <!-- ideas will render here -->
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div id="trash">
+          <h1>Trashed Ideas</h1>
+          <div class="ideas">
+            <ol class="clearfix">
+              <!-- ideas will render here -->
+              <li class="idea">
+                <span class="idea_label">Idea Name</span>
+                <div class="idea_tools">
+                  <button class="trash"><i class="fa fa-trash-o"></i></button>
+                  <button class="info"><i class="fa fa-info-circle"></i></button>
+                  <button class="star"><i class="fa fa-star"></i></button>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col4 last" id="starred">
+        <h1>Starred Ideas</h1>
+        <div class="ideas">
+          <ol class="clearfix">
+            <!-- ideas will render here -->
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+            <li class="idea">
+              <span class="idea_label">Idea Name</span>
+              <div class="idea_tools">
+                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="info"><i class="fa fa-info-circle"></i></button>
+                <button class="star"><i class="fa fa-star"></i></button>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+    </div><!-- end app-wrapper -->
+
+
+
+
+
+
+<div class="clearfix"></div>
+<hr/>
+
 
     <!-- CHAT MARKUP -->
     <div class='example-chat l-demo-container'>
