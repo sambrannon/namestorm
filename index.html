@@ -26,11 +26,10 @@
       <div id="add_idea" class="col8 last">
         <h1>New Idea +</h1>
         <div class="input_wrap clearfix">
-          <input id="name_submit" type="text" placeholder="Enter Idea Here..." ng-model="newIdea">
+          <input id="name_submit" type="text" placeholder="Enter Idea Here..." ng-model="idea" ng-keydown="addIdea($event)">
           <button type="submit">Submit</button>
         </div>
       </div>
-      {{newIdea}}
       <div class="col8" id="left-col">
 
         <h1>All Ideas</h1>
@@ -38,106 +37,10 @@
         <div id="ideas">
           <ol class="clearfix">
             <!-- ideas will render here -->
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
+            <li class="idea" ng-repeat='idea in ideas | reverse'>
+              <span class="idea_label">{{idea.title}}</span>
               <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
+                <button class="trash" ng-click="ideas.$remove(idea)"><i class="fa fa-trash-o"></i></button>
                 <button class="info"><i class="fa fa-info-circle"></i></button>
                 <button class="star"><i class="fa fa-star"></i></button>
               </div>
@@ -150,14 +53,14 @@
           <div class="ideas">
             <ol class="clearfix">
               <!-- ideas will render here -->
-              <li class="idea">
+              <!--<li class="idea">
                 <span class="idea_label">Idea Name</span>
                 <div class="idea_tools">
                   <button class="trash"><i class="fa fa-trash-o"></i></button>
                   <button class="info"><i class="fa fa-info-circle"></i></button>
                   <button class="star"><i class="fa fa-star"></i></button>
                 </div>
-              </li>
+              </li>-->
             </ol>
           </div>
         </div>
@@ -169,22 +72,14 @@
         <div class="ideas">
           <ol class="clearfix">
             <!-- ideas will render here -->
-            <li class="idea">
+            <!--<li class="idea">
               <span class="idea_label">Idea Name</span>
               <div class="idea_tools">
                 <button class="trash"><i class="fa fa-trash-o"></i></button>
                 <button class="info"><i class="fa fa-info-circle"></i></button>
                 <button class="star"><i class="fa fa-star"></i></button>
               </div>
-            </li>
-            <li class="idea">
-              <span class="idea_label">Idea Name</span>
-              <div class="idea_tools">
-                <button class="trash"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star"><i class="fa fa-star"></i></button>
-              </div>
-            </li>
+            </li>-->
           </ol>
         </div>
       </div>
@@ -193,65 +88,5 @@
 
     <script type="text/javascript" src="js/namestorm.js"></script>
 
-
-
-
-<div class="clearfix"></div>
-<hr/>
-
-
-    <!-- CHAT MARKUP -->
-    <div class='example-chat l-demo-container'>
-      <header>Firebase Chat Demo</header>
-
-      <div class='example-chat-toolbar'>
-        <label for='nameInput'>Username:</label>
-        <input ng-model='name' type='text' id='nameInput' placeholder='enter a username...'>
-      </div>
-
-      <ul id='example-messages' class='example-chat-messages'>
-        <li ng-repeat='msg in messages'>
-          <strong class='example-chat-username'>{{msg.from}}</strong>
-          {{msg.body}}
-        </li>
-      </ul>
-
-      <footer>
-        <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
-      </footer>
-    </div>
-
-    <script>
-      var myApp = angular.module("myApp", ["firebase"]);
-
-      myApp.controller('nameStormController', ['$scope', '$firebase',
-        function($scope, $firebase) {
-          //CREATE A FIREBASE REFERENCE
-          var ref = new Firebase("https://namestorm.firebaseio.com/");
-
-          // GET MESSAGES AS AN ARRAY
-          $scope.messages = $firebase(ref).$asArray();
-
-          //ADD MESSAGE METHOD
-          $scope.addMessage = function(e) {
-
-            //LISTEN FOR RETURN KEY
-            if (e.keyCode === 13 && $scope.msg) {
-              //ALLOW CUSTOM OR ANONYMOUS USER NAMES
-              var name = $scope.name || 'anonymous';
-
-              //ADD TO FIREBASE
-              $scope.messages.$add({
-                from: name,
-                body: $scope.msg
-              });
-
-              //RESET MESSAGE
-              $scope.msg = "";
-            }
-          }
-        }
-      ]);
-    </script>
   </body>
 </html>

@@ -1,1 +1,1 @@
-function nameStormController(e){};
+var myApp=angular.module("myApp",["firebase"]);myApp.filter("reverse",function(){return function(e){return e.slice().reverse()}});myApp.controller("nameStormController",["$scope","$firebase",function(e,t){var n=new Firebase("https://namestorm.firebaseio.com/");e.ideas=t(n).$asArray();e.addIdea=function(t){if(t.keyCode===13&&e.idea){e.ideas.$add({title:e.idea});e.idea=""}}}]);
