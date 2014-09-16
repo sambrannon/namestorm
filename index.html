@@ -25,8 +25,10 @@
       <div id="add_idea" class="col8 last">
         <h1>New Idea +</h1>
         <div class="input_wrap clearfix">
-          <input id="name_submit" type="text" placeholder="Enter Idea Here..." ng-model="idea" ng-keydown="addIdea($event)">
-          <button type="submit">Submit</button>
+          <form ng-submit="addIdea($event)">
+            <input id="name_submit" type="text" placeholder="Enter Idea Here..." ng-model="idea">
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
       <div class="col8" id="left-col">
@@ -36,30 +38,20 @@
         <div id="ideas">
           <ol class="clearfix">
             <!-- ideas will render here -->
-            <li class="idea" ng-repeat='idea in ideas | reverse' ng-class="idea.starred ? 'starred' : ''">
-              <span class="idea_label">{{idea.title}}</span>
-              <div class="idea_tools">
-                <button class="trash" ng-click="ideas.$remove(idea)"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star" ng-click="toggleStar(idea)"><i class="fa fa-star"></i></button>
-              </div>
+            <li class="idea" ng-repeat='idea in ideas | filter:{trashed:"!"+true} | reverse' ng-class="idea.starred ? 'starred' : ''">
+            <div ng-include="'idea_partial.html'"></div>
             </li>
           </ol>
         </div>
 
         <div id="trash">
           <h1>Trashed Ideas</h1>
+          <button ng-click="emptyTrash()">Delete All in trash</button>
           <div class="ideas">
             <ol class="clearfix">
-              <!-- ideas will render here -->
-              <!--<li class="idea" ng-repeat='idea in ideas | filter:{starred:"!"+true} | reverse'>
-                <span class="idea_label">Idea Name</span>
-                <div class="idea_tools">
-                  <button class="trash"><i class="fa fa-trash-o"></i></button>
-                  <button class="info"><i class="fa fa-info-circle"></i></button>
-                  <button class="star"><i class="fa fa-star"></i></button>
-                </div>
-              </li>-->
+              <li class="idea" ng-repeat='idea in ideas | filter:{trashed:true} | reverse'>
+                <div ng-include="'idea_partial.html'"></div>
+              </li>
             </ol>
           </div>
         </div>
@@ -71,12 +63,7 @@
         <div class="ideas">
           <ol class="clearfix">
             <li class="idea" ng-repeat='idea in ideas | filter:{starred:true} | reverse'>
-              <span class="idea_label">{{idea.title}}</span>
-              <div class="idea_tools">
-                <button class="trash" ng-click="ideas.$remove(idea)"><i class="fa fa-trash-o"></i></button>
-                <button class="info"><i class="fa fa-info-circle"></i></button>
-                <button class="star" ng-click="toggleStar(idea)"><i class="fa fa-star"></i></button>
-              </div>
+              <div ng-include="'idea_partial.html'"></div>
             </li>
           </ol>
         </div>
