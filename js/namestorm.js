@@ -14,6 +14,16 @@ myApp.controller('nameStormController', ['$scope', '$firebase',
 	  // GET ideas AS AN ARRAY
 	  $scope.ideas = $firebase(ref).$asArray();
 
+		$scope.toggleStar = function(idea) {
+			debugger;
+			if(idea.starred){
+				idea.starred = false;
+			} else {
+				idea.starred = true;
+			}
+			$scope.ideas.$save(idea);
+		}
+
 	  //ADD MESSAGE METHOD
 	  $scope.addIdea = function(e) {
 
